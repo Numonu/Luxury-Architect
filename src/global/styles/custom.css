@@ -1,0 +1,8 @@
+@tailwind components;
+
+@layer components{
+    .silver{
+        @apply bg-gradient-to-r from-slate-400 to-slate-50 text-transparent bg-clip-text;
+    }
+}
+
