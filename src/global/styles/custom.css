@@ -1,8 +1,19 @@
 @tailwind components;
 
 @layer components{
+    /*Effects*/
     .silver{
         @apply bg-gradient-to-r from-slate-400 to-slate-50 text-transparent bg-clip-text;
+    }
+
+    /*Writing*/
+    .text-title{
+        @apply silver text-2xl font-medium md:text-3xl;
+    }
+
+    /*Spacing*/
+    .mb-section{
+        @apply mb-12;
     }
 }
 
