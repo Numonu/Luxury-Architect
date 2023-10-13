@@ -1,5 +1,14 @@
 ---
-
+import About from "../components/sections/About.astro";
+import Contact from "../components/sections/Contact.astro";
+import Footer from "../components/sections/Footer.astro";
+import Header from "../components/sections/Header.astro";
+import Hero from "../components/sections/Hero.astro";
+import Portfolio from "../components/sections/Portfolio.astro";
+import Summary from "../components/sections/Summary.astro";
+import Team from "../components/sections/Team.astro";
+import Wrapper from "../components/utils/Wrapper.astro";
+import BaseLayout from "../layout/BaseLayout.astro";
 ---
 
 <html lang="en">
@@ -11,6 +20,17 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<BaseLayout>
+			<Wrapper>
+				<Header />
+				<Hero />
+				<Summary />
+				<Portfolio />
+				<About />
+				<Team />
+				<Contact />
+				<Footer />
+			</Wrapper>
+		</BaseLayout>
 	</body>
 </html>
