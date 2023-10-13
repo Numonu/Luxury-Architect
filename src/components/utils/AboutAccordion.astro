@@ -1,5 +1,10 @@
 ---
 import aboutJSON from "../../data/about.json";
+
+interface Props {
+	open?: number;
+}
+const { open } = Astro.props;
 ---
 
 <script>
@@ -19,12 +24,12 @@ import aboutJSON from "../../data/about.json";
 			case "disabled":
 				content.style.gridTemplateRows = "1fr";
 				target.dataset.status = "enabled";
-				arrow.style.rotate = "90deg"
+				arrow.style.rotate = "90deg";
 				break;
 			case "enabled":
 				content.style.gridTemplateRows = "0fr";
 				target.dataset.status = "disabled";
-				arrow.style.rotate = "0deg"
+				arrow.style.rotate = "0deg";
 				break;
 			default:
 				break;
@@ -34,14 +39,35 @@ import aboutJSON from "../../data/about.json";
 <div>
 	<ul id="acordeon" class="flex items-center flex-col gap-6">
 		{
-			aboutJSON.map((e) => {
+			aboutJSON.map((e, i) => {
 				return (
 					<li class="border-neutral-600 border-b-[1px]">
-						<header class="flex justify-between cursor-pointer [&>*]:pointer-events-none opacity-80 hover:opacity-100" data-status="disabled">
-							<h3 class="text-lg font-extralight md:text-xl">{e.title}</h3>
-							<img class="w-8 transition-[rotate]" src="svg/arrow.svg" alt="arrow">
+						<header
+							class="flex justify-between cursor-pointer [&>*]:pointer-events-none opacity-80 hover:opacity-100"
+							data-status={`${i === open ? "enabled" : "disabled"}`}
+						>
+							<h3 class="text-lg font-extralight md:text-xl">
+								{e.title}
+							</h3>
+							<img
+								class="w-8 transition-[rotate]"
+								src="svg/arrow.svg"
+								alt="arrow"
+								style={`${
+								i === open
+									? "rotate : 90deg;"
+									: "rotate : 0deg;"
+							}`}
+							/>
 						</header>
-						<div class="grid transition-all" style="grid-template-rows: 0fr;">
+						<div
+							class="grid transition-all"
+							style={`${
+								i === open
+									? "grid-template-rows: 1fr;"
+									: "grid-template-rows: 0fr;"
+							}`}
+						>
 							<div class="h-full overflow-hidden">
 								<p class="mb-4 pt-2 text-sm opacity-50 md:text-base">
 									{e.description}
