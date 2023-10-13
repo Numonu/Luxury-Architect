@@ -9,7 +9,7 @@ const {src,alt , title , href = "#"} = Astro.props;
 ---
 <a class="block relative w-full h-full cursor-pointer group" href={href}>
     <img class="w-full h-full object-cover" src={src} alt={alt}>
-    <div class="bg-lime-500 bg-opacity-20 absolute inset-0 flex justify-center items-center flex-col gap-1 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform md:gap-2">
+    <div class="bg-slate-500 bg-opacity-20 absolute inset-0 flex justify-center items-center flex-col gap-1 backdrop-blur-md translate-y-full group-hover:translate-y-0 transition-transform md:gap-2">
         <h3 class="text-2xl font-medium text-center md:text-3xl lg:text-4xl">
             {title}
         </h3>
