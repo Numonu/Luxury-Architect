@@ -1,0 +1,38 @@
+---
+import PortfolioCard from "../utils/PortfolioCard.astro";
+---
+<section>
+    <h2 class="text-title mb-4">
+        featured project
+    </h2>
+    <div class="grid gap-8 mb-8 md:grid-cols-2">
+        <p class="text-sm opacity-50">
+            our inspired solutions have helped shape moren architectural design
+        </p>
+        <aside class="text-neutral-400 flex flex-wrap gap-4 text-sm md:justify-items-end [&>*]:border-neutral-400">
+            <button class="py-2 px-4 border-2 rounded-full uppercase hover:bg-neutral-400 hover:text-black transition-colors">
+                business
+            </button>
+            <button class=" py-2 px-4 border-2 rounded-full uppercase hover:bg-neutral-400 hover:text-black transition-colors">
+                residential
+            </button>
+            <button class="py-2 px-4 border-2 rounded-full uppercase hover:bg-neutral-400 hover:text-black transition-colors">
+                hospitality
+            </button>
+        </aside>
+    </div>
+    <div class="h-[40rem] grid gap-4 md:h-[30rem] md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 [&>*]:overflow-hidden">
+        <div class="w-full h-full lg:col-span-2">
+            <PortfolioCard src="images/arch_01.jpg" alt="some alt" title="zudpleid building"/>
+        </div>
+        <div class="w-full h-full lg:row-span-2">
+            <PortfolioCard src="images/arch_02.jpg" alt="some alt" title="zudpleid building"/>
+        </div>
+        <div class="w-full h-full lg:row-span-2">
+            <PortfolioCard src="images/arch_03.jpg" alt="some alt" title="zudpleid building"/>
+        </div>
+        <div class="w-full h-full lg:col-span-2">
+            <PortfolioCard src="images/arch_04.jpg" alt="some alt" title="zudpleid building"/>
+        </div>
+    </div>
+</section>
