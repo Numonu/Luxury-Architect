@@ -1,0 +1,56 @@
+---
+import aboutJSON from "../../data/about.json";
+---
+
+<script>
+	const accordion = document.getElementById("acordeon");
+	if (!accordion) throw new ReferenceError();
+
+	accordion.addEventListener("click", (e) => {
+		const target = e.target as HTMLElement;
+		const dataset = { ...target.dataset };
+
+		const content = target.nextElementSibling as HTMLElement;
+		const arrow = target.querySelector("img") as HTMLElement;
+
+		if (!arrow || !content) throw new ReferenceError();
+
+		switch (dataset.status) {
+			case "disabled":
+				content.style.gridTemplateRows = "1fr";
+				target.dataset.status = "enabled";
+				arrow.style.rotate = "90deg"
+				break;
+			case "enabled":
+				content.style.gridTemplateRows = "0fr";
+				target.dataset.status = "disabled";
+				arrow.style.rotate = "0deg"
+				break;
+			default:
+				break;
+		}
+	});
+</script>
+<div>
+	<ul id="acordeon" class="flex items-center flex-col gap-6">
+		{
+			aboutJSON.map((e) => {
+				return (
+					<li class="border-neutral-600 border-b-[1px]">
+						<header class="flex justify-between cursor-pointer [&>*]:pointer-events-none opacity-80 hover:opacity-100" data-status="disabled">
+							<h3 class="text-lg font-extralight md:text-xl">{e.title}</h3>
+							<img class="w-8 transition-[rotate]" src="svg/arrow.svg" alt="arrow">
+						</header>
+						<div class="grid transition-all" style="grid-template-rows: 0fr;">
+							<div class="h-full overflow-hidden">
+								<p class="mb-4 pt-2 text-sm opacity-50 md:text-base">
+									{e.description}
+								</p>
+							</div>
+						</div>
+					</li>
+				);
+			})
+		}
+	</ul>
+</div>
